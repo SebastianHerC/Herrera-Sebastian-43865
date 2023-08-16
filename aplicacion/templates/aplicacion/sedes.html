@@ -1,0 +1,53 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Sedes</title>
+{% endblock titulo %}
+{% block nav %}
+    
+{% endblock nav %}
+{% block contenido %}
+
+<a href="{% url 'sedes_form' %}" class="btn btn-primary">
+    <i class="fa fa-plus"></i> Crear
+</a>
+<h1>Sedes</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Dirección</th>
+            <th>Numeración</th>
+            <th>Acciones</th> 
+        </tr>
+    </thead>
+    <tbody>
+        {% for sede in Sedes %}
+        <tr>
+            <td>{{ sede.id}}</td>
+            <td>{{ sede.direccion }}</td>
+            <td>{{ sede.numeracion }}</td>
+            <td>
+                <div class="btn-group" role="group">
+                    <a href="{% url 'update_sede' sede.id %}" class="btn btn-primary">
+                        <i class="fa fa-pencil"></i> 
+                    </a>
+                    <a href="{% url 'eliminar_sede' sede.id %}" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> 
+                    </a>
+                    <a href="{% url 'detalle_sede' sede.id %}" class="btn btn-primary">
+                        <i class="fa fa-eye"></i> Detalles
+                    </a>                    
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
+    
+
+
+

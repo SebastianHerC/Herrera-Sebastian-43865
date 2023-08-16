@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Sede</title>
+</head>
+<body>
+    <form action="{% url 'buscar_sede2' %}" method="get">
+        {% csrf_token %}
+        <label for="direccion">Dirección:</label>
+        <input type="text" name="direccion" id="direccion">
+        <input type="submit" value="Buscar">
+    </form>
+</body>
+</html>

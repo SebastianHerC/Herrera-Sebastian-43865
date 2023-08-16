@@ -1,0 +1,28 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Resultados</title>
+{% endblock titulo %}
+
+{% block contenido %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Direccion</th>
+                <th>Numeración</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sede in numeracion %}
+            <tr>
+                <td>{{ sede.id }}</td>
+                <td>{{ sede.direccion }} N°{{ sede.numeracion }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock contenido %}

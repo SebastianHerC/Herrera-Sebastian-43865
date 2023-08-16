@@ -1,0 +1,16 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Eliminar Sede</title>
+{% endblock titulo %}
+
+{% block contenido %}
+    <h2>Eliminar Sede</h2>
+    <p>¿Estás seguro de que deseas eliminar la sede "{{ sede.direccion }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar" class="btn btn-danger">
+        <a href="{% url 'sedes' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock contenido %}

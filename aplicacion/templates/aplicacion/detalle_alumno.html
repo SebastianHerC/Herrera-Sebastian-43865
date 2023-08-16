@@ -1,0 +1,13 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Detalle de Alumno</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h2>Detalles del Alumno</h2>
+<p>Nombre: {{ alumno.nombre }}</p>
+<p>Mail: {{ alumno.mail }}</p>
+<p>Edad: {{ alumno.edad }}</p>
+{% endblock contenido %}

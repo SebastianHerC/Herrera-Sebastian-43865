@@ -1,0 +1,49 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Profesores</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<a href="{% url 'profesores_form' %}" class="btn btn-primary">
+    <i class="fa fa-plus"></i> Crear
+</a>
+
+<h1>Profesores</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Clase</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for profesor in Profesores %}
+        <tr>
+            <td>{{ profesor.nombre }}</td>
+            <td>{{ profesor.clase }}</td>
+            <td>
+                <div class="btn-group" role="group">
+                    <a href="{% url 'update_profesor' profesor.id %}" class="btn btn-primary">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <a href="{% url 'eliminar_profesor' profesor.id %}" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> 
+                    </a>
+                    <a href="{% url 'detalle_profesor' profesor.id %}" class="btn btn-primary">
+                        <i class="fa fa-eye"></i> Detalles
+                    </a>
+                    
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
+
+    

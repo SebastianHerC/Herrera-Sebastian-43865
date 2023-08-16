@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Profesores</title>
+</head>
+<body>
+    <form action="{% url 'buscar_profesores2' %}" method="get">
+        {% csrf_token %}
+        <label for="clase">Clase:</label>
+        <input type="text" name="clase" id="clase">
+        <input type="submit" value="Buscar">
+    </form>
+</body>
+</html>

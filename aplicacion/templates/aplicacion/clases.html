@@ -1,0 +1,50 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Clases</title>
+{% endblock titulo %}
+
+
+{% block contenido %}
+<a href="{% url 'clases_form' %}" class="btn btn-primary">
+    <i class="fa fa-plus"></i> Crear
+</a>
+
+<h1>Clases</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Día/Hora</th>
+            <th>Hora</th>
+            <th>Valor</th>
+            <th>Acciones</th>  
+        </tr>
+    </thead>
+    <tbody>
+        {% for clase in Clases %}
+        <tr>
+            <td>{{ clase.nombre }}</td>
+            <td>{{ clase.dia }},{{ clase.hora }}</td>
+            <td>{{ clase.valor }}</td>
+            <td>
+                <a href="{% url 'update_clase' clase.id %}" class="btn btn-primary">
+                    <i class="fa fa-pencil"></i> 
+                </a>
+                <a href="{% url 'eliminar_clase' clase.id %}" class="btn btn-danger">
+                    <i class="fa fa-trash"></i> 
+                </a>
+                <a href="{% url 'detalle_clase' clase.id %}" class="btn btn-primary">
+                    <i class="fa fa-eye"></i> Detalles
+                </a>
+                
+            </td>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
+
+
+
+    

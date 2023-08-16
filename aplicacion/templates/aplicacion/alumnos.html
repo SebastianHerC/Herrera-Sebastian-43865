@@ -1,0 +1,54 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Alumnos</title>
+{% endblock titulo %}
+
+{% block nav %}
+    
+{% endblock nav %}
+    
+
+{% block contenido %}
+<a href="{% url 'alumnos_form' %}" class="btn btn-primary">
+    <i class="fa fa-plus"></i> Crear
+</a>
+
+<h1>Alumnos</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Mail</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alumno in Alumnos %}
+        <tr>
+            <td>{{ alumno.id }}</td>
+            <td>{{ alumno.nombre }}</td>
+            <td>{{ alumno.mail }}</td>
+            <td>{{ alumno.edad }}</td>
+            <td>
+                <a href="{% url 'update_alumno' alumno.id %}" class="btn btn-primary">
+                    <i class="fa fa-pencil"></i> 
+                </a>
+                <a href="{% url 'eliminar_alumno' alumno.id %}" class="btn btn-danger">
+                    <i class="fa fa-trash"></i> 
+                </a>
+                <a href="{% url 'detalle_alumno' alumno.id %}" class="btn btn-primary">
+                    <i class="fa fa-eye"></i> Detalles
+                </a>
+                
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
+
+

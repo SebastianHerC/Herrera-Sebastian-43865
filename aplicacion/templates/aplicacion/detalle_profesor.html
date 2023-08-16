@@ -1,0 +1,13 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Detalle de Profesor</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h2>Detalles del Profesor</h2>
+<p>Nombre: {{ profesor.nombre }}</p>
+<p>Clase: {{ profesor.clase }}</p>
+
+{% endblock contenido %}

@@ -1,0 +1,13 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title>Detalle de Sede</title>
+{% endblock titulo %}
+
+{% block contenido %}
+<h2>Detalles de la Sede</h2>
+<p>Dirección: {{ sede.direccion }}</p>
+<p>Numeración: {{ sede.numeracion }}</p>
+
+{% endblock contenido %}

@@ -1,0 +1,16 @@
+{% extends 'aplicacion/base.html' %} 
+{% load static %} 
+{% block titulo %}Cargar Avatar{% endblock titulo %} 
+
+{% block contenido %}
+    <br>
+    <h3>Cargar Avatar</h3>
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        {{ form.as_p  }}
+
+        <input type="submit" value="Actualizar">
+
+    </form>
+{% endblock contenido %}

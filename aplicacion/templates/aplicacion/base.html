@@ -1,0 +1,237 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+{% block titulo %}
+<title>Py GYM</title>
+{% endblock titulo %}
+    
+
+<!--
+
+TemplateMo 548 Training Studio
+
+https://templatemo.com/tm-548-training-studio
+
+-->
+    <!-- Additional CSS Files -->
+    {% load static %} 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'aplicacion/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'aplicacion/css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'aplicacion/css/templatemo-training-studio.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilo para las pestañas en la barra de navegación */
+        .main-nav ul.nav li.scroll-to-section a {
+            color: orange;
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Cambio de color en el hover */
+        .main-nav ul.nav li.scroll-to-section a:hover {
+            background-color: orange;
+            color: white;
+        }
+
+        /* Agregar separación horizontal entre las pestañas */
+        .main-nav ul.nav li.scroll-to-section {
+            margin-right: 15px;
+        }
+
+        /* Estilo para la pestaña activa */
+        .main-nav ul.nav li.scroll-to-section.active a {
+            background-color: orange;
+            color: white;
+        }
+
+        /* Estilo para los botones de inicio de sesión y administración */
+        .main-nav ul.nav li a.btn {
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Cambio de color en el hover */
+        .main-nav ul.nav li a.btn:hover {
+            background-color: orange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="{% url 'base' %}" class="logo"><em>PY GYM</em></a>
+                    <ul class="nav">
+                        {% if user.is_authenticated %}
+                        <li class="scroll-to-section"><a href="{% url 'base' %}" style="color: orange;">Inicio</a></li> 
+                        <li class="scroll-to-section"><a href="{% url 'clases' %}" style="color: orange;">Clases</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'profesores' %}" style="color: orange;">Profesores</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'alumnos' %}" style="color: orange;">Alumnos</a></li>
+                        <li class="scroll-to-section"><a href="{% url 'sedes' %}" style="color: orange;">Sedes</a></li>
+                        <p style="color:green">Bienvenido  {{ user.username|upper }}</p>
+                        <div class="text-center">
+                            <img src="{{ request.session.avatar }}" height="40px" weight="40px"/>
+                        </div> 
+                        <a class="btn btn-info" href="{% url 'logout' %}">Logout</a>
+                        <li><a class="btn btn-primary rounded-button" href="{% url 'admin:index' %}">Admin</a></li>
+                        {% else %}
+                        <li><a class="btn btn-info" href="{% url 'login' %}">Login</a></li>
+                        <li><a class="btn btn-info" href="{% url 'register' %}">register</a></li>
+                        
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src="{% static 'aplicacion/images/gym-video.mp4' %}" type="video/mp4" />
+        </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <h6>Primera clase gratis</h6>
+                <h2>Profesores de <em> Excelencia</em></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        {% block contenido %}
+        
+        {% endblock contenido %}
+        {% if mensaje %}
+        <h4>
+            <p style="color:red" align="center">
+            {{mensaje}}
+        </p>
+</h4>   
+{% endif %}
+    </div>
+</section>
+
+<section class="section" id="trainers">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="{% static 'aplicacion/images/first-trainer.jpg' %}" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>Alumno de clase Fuerza</span>
+                        <h4>Bret </h4>
+                        <p>"El ambiente en este gimnasio es increíble. Siempre me siento motivada y apoyada por el personal amable y los instructores profesionales. Cada sesión de entrenamiento es desafiante pero gratificante. ¡Definitivamente ha mejorado mi salud y mi actitud hacia el ejercicio!"</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="{% static 'aplicacion/images/second-trainer.jpg' %}" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>Alumno clase Pesas</span>
+                        <h4>Hector </h4>
+                        <p>"Me encanta este gimnasio por su variedad de clases y equipos de alta calidad. Desde las sesiones de levantamiento de pesas hasta las clases de yoga relajantes, siempre encuentro algo que se adapta a mis necesidades. Además, la limpieza y la seguridad son una prioridad aquí, lo que me hace sentir cómodo mientras entreno."</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="trainer-item">
+                    <div class="image-thumb">
+                        <img src="{% static 'aplicacion/images/third-trainer.jpg' %}" alt="">
+                    </div>
+                    <div class="down-content">
+                        <span>Alumno GYM</span>
+                        <h4>Paul </h4>
+                        <p>"Como principiante en el mundo del fitness, este gimnasio me ha brindado el apoyo que necesitaba para comenzar mi viaje. Los entrenadores son pacientes y dispuestos a responder a todas mis preguntas. Además, las instalaciones modernas y el ambiente acogedor hacen que cada visita sea un placer. ¡No puedo esperar para ver mi progreso!"</p>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; 2020 Training Studio
+                    
+                    - Designed by <a rel="nofollow" href="https://templatemo.com" class="tm-text-link" target="_parent">TemplateMo</a></p>
+                    
+                    <!-- You shall support us a little via PayPal to info@templatemo.com -->
+                    
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="aplicacion/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="aplicacion/js/popper.js"></script>
+    <script src="aplicacion/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="aplicacion/js/scrollreveal.min.js"></script>
+    <script src="aplicacion/js/waypoints.min.js"></script>
+    <script src="aplicacion/js/jquery.counterup.min.js"></script>
+    <script src="aplicacion/js/imgfix.min.js"></script> 
+    <script src="aplicacion/js/mixitup.js"></script> 
+    <script src="aplicacion/js/accordions.js"></script>
+    
+    <!-- Global Init -->
+    <script src="aplicacion/js/custom.js"></script>
+
+  </body>
+</html>
